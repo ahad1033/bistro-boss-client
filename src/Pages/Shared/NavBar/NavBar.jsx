@@ -22,7 +22,7 @@ const NavBar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <Link className="text-center flex-col shrink-0 font-semibold" to='/'>BISTRO BOSS <br /><span className="text-center flex-shrink-0">RESTURENT</span></Link>
+                    <Link className="text-center flex-col shrink-0 font-semibold" to='/'>BISTRO BOSS</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
