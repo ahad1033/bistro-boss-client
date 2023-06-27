@@ -2,7 +2,7 @@
 const Footer = () => {
     return (
         <footer>
-            <div className="footer my-10 gap-0">
+            <div className="footer mt-10 gap-0">
                 <div className="items-end flex flex-col h-full w-full p-10" style={{ backgroundColor: '#1F2937' }}>
                     <div>
                         <p className="font-bold text-center mb-5 text-white">CONTACT US</p>
