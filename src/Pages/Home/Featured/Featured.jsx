@@ -14,10 +14,10 @@ const Featured = () => {
                     <img  src={featuredImg} alt="" />
                 </div>
                 <div className="md:ml-10">
-                    <p>Aug 20, 2023</p>
-                    <p className="uppercase">Where can I get some?</p>
+                    <p className="font-semibold text-2xl mb-2">Aug 20, 2025</p>
+                    <p className="uppercase mb-2">Where can I get some?</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda adipisci voluptatem a delectus, modi reprehenderit numquam rerum, illum doloremque labore harum, obcaecati quibusdam repellendus cumque suscipit? Rem saepe debitis accusamus quo sunt tempora, eius, cum aliquam ipsam omnis ad temporibus? Repellat dolore minus nemo excepturi fuga. Quas enim nemo sapiente.</p>
-                    <button className="btn btn-outline">Read More</button>
+                    <button className="btn btn-outline mt-3">Read More</button>
                 </div>
             </div>
         </div>
