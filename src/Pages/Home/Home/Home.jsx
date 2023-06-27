@@ -1,3 +1,4 @@
+import CallUs from "../../../Components/CallUs/CallUs";
 import Banner from "../Banner/Banner";
 import ChefServiceBanner from "../Banner/chefServiceBanner";
 import Category from "../Category/Category";
@@ -10,6 +11,7 @@ const Home = () => {
             <Category />
             <ChefServiceBanner />
             <PopularMenu />
+            <CallUs />
         </div>
     );
 };
