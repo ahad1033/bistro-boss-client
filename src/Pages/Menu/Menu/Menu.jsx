@@ -7,7 +7,6 @@ import soupImg from '../../../assets/menu/soup-bg.jpg'
 import useMenu from "../../../Hooks/useMenu";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import MenuCategory from "../MenuCategory/MenuCategory";
-import OrderFoodButton from "../../../Components/OrderFoodButton/OrderFoodButton";
 
 const Menu = () => {
 
@@ -33,35 +32,30 @@ const Menu = () => {
             <MenuCategory
                 items={offered}
             />
-            <OrderFoodButton />
             {/* desert menu items */}
             <MenuCategory
                 items={dessert}
                 title="dessert"
                 img={dessertImg}
             />
-            <OrderFoodButton />
             {/* Pizza items */}
             <MenuCategory
                 items={pizza}
                 title={"pizza"}
                 img={pizzaImg}
             />
-            <OrderFoodButton />
             {/* Salad items */}
             <MenuCategory
                 items={salad}
                 title={"salad"}
                 img={saladImg}
             />
-            <OrderFoodButton />
             {/* soup items */}
             <MenuCategory
                 items={soup}
                 title={"soup"}
                 img={soupImg}
             />
-            <OrderFoodButton />
         </div>
     );
 };
