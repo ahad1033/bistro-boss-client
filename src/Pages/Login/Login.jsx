@@ -2,6 +2,8 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { Link } from 'react-router-dom';
+import background from '../../../src/assets/others/authentication.png';
+import img from '../../assets/others/authentication2.png';
 
 const Login = () => {
 
@@ -36,11 +38,13 @@ const Login = () => {
     }
 
     return (
-        <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-cold md:flex-row-reverse">
-                <div className="text-center md:w-1/2 lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+        <div className="hero min-h-screen bg-base-200" style={{ backgroundImage: `url(${background})` 
+    }}>
+            <div className="hero-content flex-col md:flex-row-reverse gap-10">
+                <div className="md:w-1/2 lg:text-left">
+                    <h1 className="text-5xl text-center font-bold mb-5">Login now!</h1>
+                    {/* <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p> */}
+                    <img src={img} alt="" />
                 </div>
                 <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleLogin} className="card-body">
