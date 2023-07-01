@@ -52,7 +52,7 @@ const SignUp = () => {
                         <div className="form-control mt-6">
                             <input className="btn btn-primary" type="submit" value="Sign Up" />
                         </div>
-                        <p className="text-center mt-5"><small>Already have an account? <Link to='/login'>Sign In</Link></small></p>
+                        <p className="text-center mt-5"><small>Already have an account? <Link className="font-bold" to='/login'>Sign In</Link></small></p>
                     </form>
                 </div>
             </div>
