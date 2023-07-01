@@ -1,11 +1,20 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const { createUser } = useContext(AuthContext);
 
     const onSubmit = data => {
         console.log(data);
+        createUser(data.email, data.password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
     };
 
     // console.log(watch("example"));
@@ -23,7 +32,7 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" {...register("name", { required: true }) } name="name" placeholder="Name" className="input input-bordered"  />
+                            <input type="text" {...register("name", { required: true })} name="name" placeholder="Name" className="input input-bordered" />
                             {errors.name && <span className="text-red-600">Name is required</span>}
                         </div>
                         <div className="form-control">
@@ -41,8 +50,9 @@ const SignUp = () => {
                             {errors.name && <span className="text-red-600">Password is required</span>}
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary" type="submit">Sign Up</button>
+                            <input className="btn btn-primary" type="submit" value="Sign Up" />
                         </div>
+                        <p className="text-center mt-5"><small>Already have an account? <Link to='/login'>Sign In</Link></small></p>
                     </form>
                 </div>
             </div>
