@@ -17,7 +17,7 @@ const Dashboard = () => {
                     <li><Link><FaHome /> User Home</Link></li>
                     <li><Link><FaCalendarAlt /> Reservations</Link></li>
                     <li><Link>< FaWallet /> Payment History</Link></li>
-                    <li><Link><FaShoppingCart /> My Cart</Link></li>
+                    <li><Link to="/dashboard/mycart"><FaShoppingCart /> My Cart</Link></li>
                     <div className="divider"></div>
                     <li><Link to="/"><FaHome /> Home</Link></li>
                     <li><Link to="/menu"><FaHome /> Our Menu</Link></li>
