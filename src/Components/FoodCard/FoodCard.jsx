@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import userCart from "../../Hooks/useCart";
 
 const FoodCard = ({ item }) => {
 
     const { name, image, price, recipe, _id } = item;
     const { user } = useContext(AuthContext);
+    const [ , refetch] = userCart();
 
     const handleAddToCart = item => {
         console.log(item);
@@ -21,6 +23,7 @@ const FoodCard = ({ item }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedID) {
+                    refetch(); //refetch cart to update data
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
@@ -42,7 +45,8 @@ const FoodCard = ({ item }) => {
                 }
               })
         }
-    }
+    };
+
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <figure><img src={image} alt="Food" /></figure>

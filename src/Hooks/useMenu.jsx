@@ -12,6 +12,6 @@ const useMenu = () => {
             setLoading(false);
     }, [])
     return [menu, loading]
-}
+};
 
 export default useMenu;
