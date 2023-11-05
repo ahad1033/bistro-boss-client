@@ -4,6 +4,8 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import background from '../../../src/assets/others/authentication.png';
 import img from '../../assets/others/authentication2.png';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
@@ -29,6 +31,15 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                Swal.fire({
+                    title: 'User Login Sucessfull.',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
             navigate(from, { replace: true });
             })
     }
@@ -79,6 +90,7 @@ const Login = () => {
                             <input disabled={disabled} className="btn btn-primary" type="submit" value="Login" />
                         </div>
                         <p className='text-center mt-5'><small>New here? <Link className='font-bold' to='/signup'>Create an account</Link></small></p>
+                        <SocialLogin />
                     </form>
                 </div>
             </div>
