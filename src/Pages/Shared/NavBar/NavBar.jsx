@@ -18,7 +18,7 @@ const NavBar = () => {
     const navOptions = <>
         <li><Link to='/'>Home</Link></li>
         <li><a>Contact Us</a></li>
-        <li><a>Dashboard</a></li>
+        <li><Link to='/dashboard'>Dashboard</Link></li>
         <li><Link to='/menu'>Our Menu</Link></li>
         <li><Link to='/order/salad'>Order Food</Link></li>
         <li>

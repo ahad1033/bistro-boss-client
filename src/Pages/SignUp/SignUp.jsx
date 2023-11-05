@@ -4,6 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
 import background from '../../../src/assets/others/authentication.png';
 import img from '../../assets/others/authentication2.png';
+import Swal from "sweetalert2";
 
 const SignUp = () => {
 
@@ -11,16 +12,39 @@ const SignUp = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
 
     const onSubmit = data => {
-        console.log(data);
+
         createUser(data.email, data.password)
             .then(result => {
+
                 const loggedUser = result.user;
                 console.log(loggedUser);
+
                 updateUserProfile(data.name, data.photoURL)
-                .then(() => {
-                    console.log("user profile info updated")
-                })
-                .catch(error => console.log(error))
+                    .then(() => {
+                        const saveUser = {name: data.name, email: data.email}
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedID) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User Created Successfully',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    nevigate('/');
+                                }
+                            })
+                    })
+                    .catch(error => console.log(error))
             })
     };
 
@@ -49,7 +73,7 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input type="text" {...register("photoURL", { required: true })}  placeholder="Photo URL" className="input input-bordered" />
+                            <input type="text" {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
                             {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
                         </div>
                         <div className="form-control">
