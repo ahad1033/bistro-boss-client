@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import background from '../../../src/assets/others/authentication.png';
 import img from '../../assets/others/authentication2.png';
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
 
@@ -21,7 +22,7 @@ const SignUp = () => {
 
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        const saveUser = {name: data.name, email: data.email}
+                        const saveUser = { name: data.name, email: data.email }
                         fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {
@@ -40,7 +41,7 @@ const SignUp = () => {
                                         showConfirmButton: false,
                                         timer: 1500
                                     });
-                                    nevigate('/');
+                                    Navigate('/');
                                 }
                             })
                     })
@@ -94,6 +95,7 @@ const SignUp = () => {
                             <input className="btn btn-primary" type="submit" value="Sign Up" />
                         </div>
                         <p className="text-center mt-5"><small>Already have an account? <Link className="font-bold" to='/login'>Sign In</Link></small></p>
+                        <SocialLogin />
                     </form>
                 </div>
             </div>
