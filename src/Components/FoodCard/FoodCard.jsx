@@ -10,7 +10,7 @@ const FoodCard = ({ item }) => {
     const [ , refetch] = userCart();
 
     const handleAddToCart = item => {
-        console.log(item);
+        // console.log(item);
         if(user && user.email) {
             const cartItem = { menuItemId: _id, name, image, price, email: user.email}
             fetch('http://localhost:5000/carts', {
