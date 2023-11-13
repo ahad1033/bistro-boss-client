@@ -7,7 +7,6 @@ const Dashboard = () => {
 
     const [cart] = useCart();
 
-    //TO DO---
     // const isAdmin = true;
     const [isAdmin] = useAdmin();
 
@@ -26,7 +25,7 @@ const Dashboard = () => {
                     {
                         isAdmin ? <>
                             <li><NavLink to="/dashboard/home"><FaHome /> Admin Home</NavLink></li>
-                            <li><NavLink to="/dashboard/reservations"><FaUtensils /> Add Items</NavLink></li>
+                            <li><NavLink to="/dashboard/additem"><FaUtensils /> Add an Item</NavLink></li>
                             <li><NavLink to="/dashboard/history">< FaWallet /> Manage Items</NavLink></li>
                             <li><NavLink to="/dashboard/history">< FaBook /> Manage Bookings</NavLink></li>
                             <li><NavLink to="/dashboard/allusers">< FaUsers /> All Users</NavLink></li>
